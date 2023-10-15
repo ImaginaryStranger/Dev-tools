@@ -1,7 +1,7 @@
 import _size from "lodash/size";
 import _get from 'lodash/get';
 import _map from 'lodash/map.js';
-import {Row, Col,, Flex, Anchor, Typography, Space} from "antd";
+import {Row, Col, Flex, Anchor, Typography, Space} from "antd";
 import JsonViewer from "./JsonViewer.jsx";
 import {useId} from "react";
 import Title from "antd/es/typography/Title";
