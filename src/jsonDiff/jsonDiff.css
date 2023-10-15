@@ -1,0 +1,26 @@
+.removed {
+    background-color: #332226;
+}
+
+.added {
+    background-color: #1a382a;
+}
+
+.update {
+    background-color: #515231;
+}
+
+.disabled-text {
+    color: #808080FF;
+
+}
+
+.key-text {
+    color: #75b7f3ff;
+    font-size: 16px
+}
+
+.value-text {
+    color: #b6c0c7ff;
+    font-size: 16px
+}
