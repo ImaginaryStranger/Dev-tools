@@ -1,5 +1,5 @@
 import {getJsonDeltaArray, processJsonArray} from "./jsonDiff.helpers";
-import {Input, Layout, Space, Button, Radio, Flex, Modal, Form, Typography, Switch} from "antd";
+import {Input, Space, Button, Radio, Flex, Modal, Form, Typography, Switch} from "antd";
 import {useState} from "react";
 import {RedoOutlined, UploadOutlined} from "@ant-design/icons";
 import JsonAlongside from "./JsonAlongside.jsx";
@@ -9,7 +9,7 @@ import _pick from 'lodash/pick';
 import _map from "lodash/map.js";
 
 
-const JsonDiff = (props) => {
+const JsonDiffDashboard = (props) => {
   const viewOptions = [{ label: 'Default', value: 'default'}, { label: 'Inline', value: 'inline'}, { label: 'Alongside', value: 'alongside'}];
   const [form] = Form.useForm();
   const [searchForm] = Form.useForm();
@@ -105,4 +105,4 @@ const JsonDiff = (props) => {
   );
 };
 
-export default JsonDiff;
+export default JsonDiffDashboard;

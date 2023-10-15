@@ -1,6 +1,7 @@
 import {Layout, Menu } from "antd";
 import {Content, Header} from "antd/es/layout/layout";
-import JsonDiff from './jsonDiff/JsonDiff'
+// @ts-ignore
+import JsonDiffDashboard from './jsonDiff/JsonDiffDashboard'
 import Title from "antd/es/typography/Title";
 
 function App() {
@@ -27,7 +28,7 @@ function App() {
                           margin: 0,
                           height: '100%'
                       }}>
-                        <JsonDiff />
+                        <JsonDiffDashboard />
                       </Content>
                   </Layout>
           </Layout>
