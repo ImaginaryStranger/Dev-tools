@@ -4,3 +4,9 @@ export const STATE = {
     ADDED: 'ADDED',
     REMOVED: 'REMOVED',
 }
+
+export const INITIAL_SEARCH_QUERY = {
+    searchText: '',
+    isNestedSearchEnabled: false,
+    searchType: 'search-path-keys',
+}
