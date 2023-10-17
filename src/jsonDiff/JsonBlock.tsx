@@ -99,8 +99,8 @@ const JsonBlock = props => {
                         });
                         return (
                             <>
-                                {OldBlock}
                                 {NewBlock}
+                                {OldBlock}
                             </>
                         );
                     case 3:
