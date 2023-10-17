@@ -79,28 +79,29 @@ const JsonBlock = props => {
                             level
                         });
                     case 2:
-                        const NewBlock = renderBlockOrLine({
-                            index: nextIndex - 1,
-                            shouldRenderBlock,
-                            key: showAdded ? key : '',
-                            value: showAdded ? keyDelta[1] : '',
-                            currentPath,
-                            state: STATE.ADDED,
-                            level
-                        });
                         const OldBlock = renderBlockOrLine({
                             index: nextIndex - 1,
                             shouldRenderBlock,
-                            key: showRemoved ? key : '',
-                            value: showRemoved ? keyDelta[0] : '',
+                            key: showAdded ? key : '',
+                            value: showAdded ? keyDelta[0] : '',
                             currentPath,
                             state: STATE.REMOVED,
+                            level
+                        });
+                        const NewBlock = renderBlockOrLine({
+                            index: nextIndex - 1,
+                            shouldRenderBlock,
+                            key: showRemoved ? key : '',
+                            value: showRemoved ? keyDelta[1] : '',
+                            currentPath,
+                            state: STATE.ADDED,
                             level
                         });
                         return (
                             <>
                                 {NewBlock}
                                 {OldBlock}
+
                             </>
                         );
                     case 3:
