@@ -1,19 +1,15 @@
-import {Flex, Layout, Menu, Switch} from "antd";
+import {Flex, Layout, Menu} from "antd";
 import {Content, Header} from "antd/es/layout/layout";
 
 import JsonDiffDashboard from './jsonDiff/JsonDiffDashboard'
 import Title from "antd/es/typography/Title";
-import {useState} from "react";
 
 function App() {
-    const [isDarkModeEnabled, setIsDarkModeEnabled] = useState(false);
     const dashboardOptions: { key: string, label: string }[] = [{
         key: 'json-diff-tool',
         label: 'JSON diff tool'
     }]
-    const onChangeDarkModeSwitch = (value: boolean) => {
-        setIsDarkModeEnabled(value);
-    }
+
     return (
         <Layout style={{height: '100%', width: '100vw'}}>
             <Header
@@ -33,7 +29,6 @@ function App() {
                         items={dashboardOptions}
                     />
                 </Flex>
-                <Switch onChange={onChangeDarkModeSwitch}/>
             </Header>
             <Layout>
                 <Layout>
@@ -42,7 +37,7 @@ function App() {
                         margin: 0,
                         height: '100%'
                     }}>
-                        <JsonDiffDashboard isDarkModeEnabled={isDarkModeEnabled}/>
+                        <JsonDiffDashboard/>
                     </Content>
                 </Layout>
             </Layout>

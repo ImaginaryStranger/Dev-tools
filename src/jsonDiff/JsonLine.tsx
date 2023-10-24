@@ -7,12 +7,19 @@ const JsonLine = props => {
     const {lineKey, lineValue, canExpand, isExpanded, setIsExpanded, state, level} = props;
     const highlightClassName = state === STATE.HAS_UPDATE ? 'line-update' : state === STATE.ADDED ? 'line-added' : state === STATE.REMOVED ? 'line-removed' : ''
     let levelPadding = level * 16 + 20;
-    const formattedLineValue = lineValue === false ? 'false' : lineValue === null ? 'null' : lineValue;
+    const formattedLineValue = lineValue === false ? 'false' : lineValue === null ? 'null' : lineValue === true ? 'true' : lineValue;
     if (canExpand) levelPadding = levelPadding - 24;
     if (lineValue === '') return undefined;
     return (
         <div className={lineValue === '' ? '' : highlightClassName}
-             style={{display: 'flex', width: '100%', paddingTop: '4px', paddingBottom: '4px', height: '32px', alignItems: 'center'}}>
+             style={{
+                 display: 'flex',
+                 width: '100%',
+                 paddingTop: '4px',
+                 paddingBottom: '4px',
+                 height: '32px',
+                 alignItems: 'center'
+             }}>
             {
                 canExpand && (
                     <Button style={{color: 'gray'}} size={"small"} ghost

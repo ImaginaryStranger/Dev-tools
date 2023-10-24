@@ -20,11 +20,11 @@
     }
 
     .line-added {
-        background-color: #fbe9eb;
+        background-color: #ecfdf0;
     }
 
     .line-removed {
-        background-color: #ecfdf0;
+        background-color: #fbe9eb;
     }
 
     .line-update {

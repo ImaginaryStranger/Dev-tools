@@ -20,7 +20,13 @@ const JsonInline = (props) => {
                 {
                     _map(deltaArray, (delta, index: number) => {
                         return (
-                            <div>
+                            <div style={{
+                                height: 'fit-content',
+                                width: '100%',
+                                border: "gray 3px solid",
+                                marginBottom: '10px',
+                                padding: '4px',
+                            }}>
 
                                 <Title id={`v-${_size(deltaArray) - index + 1}-v${_size(deltaArray) - index}`}
                                        level={5}>{`Comparing version ${_size(deltaArray) - index + 1} with version ${_size(deltaArray) - index}`}</Title>
@@ -75,7 +81,7 @@ const JsonInline = (props) => {
                     })
                 }
             </Col>
-            <Col span={4}>
+            <Col span={4} style={{height: '100%', overflow: "auto"}}>
                 <Anchor
                     style={{height: '100%'}}
                     items={anchorItems}

@@ -21,7 +21,13 @@ const JsonAlongside = props => {
                     _map(deltaArray, (delta, index: number) => {
                         return (
                             <div key={`v-${_size(deltaArray) - index + 1}-v${_size(deltaArray) - index}`}
-                                 style={{height: 'fit-content', width: '100%'}}>
+                                 style={{
+                                     height: 'fit-content',
+                                     width: '100%',
+                                     border: "gray 3px solid",
+                                     marginBottom: '10px',
+                                     padding: '4px',
+                                 }}>
                                 <Title id={`v-${_size(deltaArray) - index + 1}-v${_size(deltaArray) - index}`}
                                        level={5}>{`Comparing version ${_size(deltaArray) - index + 1} with version ${_size(deltaArray) - index}`}</Title>
                                 <Flex style={{margin: '4px'}} gap={"small"}>
@@ -63,8 +69,8 @@ const JsonAlongside = props => {
                                             path={''}
                                             state={STATE.HAS_UPDATE}
                                             level={2}
-                                            showAdded={true}
-                                            showRemoved={false}
+                                            showAdded={false}
+                                            showRemoved={true}
                                             limitedMode={limitedMode}
                                         />
                                     </Col>
@@ -77,8 +83,8 @@ const JsonAlongside = props => {
                                             path={''}
                                             state={STATE.HAS_UPDATE}
                                             level={2}
-                                            showAdded={false}
-                                            showRemoved={true}
+                                            showAdded={true}
+                                            showRemoved={false}
                                             limitedMode={limitedMode}
                                         />
                                     </Col>
@@ -88,9 +94,9 @@ const JsonAlongside = props => {
                     })
                 }
             </Col>
-            <Col span={4}>
+            <Col span={4} style={{height: '100%', overflow: "auto"}}>
                 <Anchor
-                    style={{height: '100%'}}
+                    style={{width: '100%'}}
                     items={anchorItems}
                 />
             </Col>

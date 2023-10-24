@@ -22,19 +22,27 @@ import JsonInline from "./JsonInline.jsx";
 import {INITIAL_SEARCH_QUERY} from "./jsonDiff.constants.ts";
 
 
-const JsonDiffDashboard = ({isDarkModeEnabled}: { isDarkModeEnabled: boolean }) => {
+const JsonDiffDashboard = () => {
+    const [isDarkModeEnabled, setIsDarkModeEnabled] = useState(false);
     const [form] = Form.useForm();
     const [searchForm] = Form.useForm();
     const [selectedView, setSelectedView] = useState('default')
     const [uploadModalStatus, setUploadModalStatus] = useState(false);
-    const [isChecked, setIsChecked] = useState(false);
-    const viewOptions: { label: string, value: string }[] = [{label: 'Default', value: 'default'}, {label: 'Inline', value: 'inline'}, {
+    const [isChecked, setIsChecked] = useState(true);
+    const viewOptions: { label: string, value: string }[] = [{label: 'Default', value: 'default'}, {
+        label: 'Inline',
+        value: 'inline'
+    }, {
         label: 'Alongside',
         value: 'alongside'
     }];
     const [jsonArrayMetadata, setJsonArrayMetadata] = useState([]);
     const onViewChange = ({target: {value}}: RadioChangeEvent) => {
         setSelectedView(value);
+    }
+
+    const onChangeDarkModeSwitch = (value: boolean) => {
+        setIsDarkModeEnabled(value);
     }
 
     const handleModalOK = (values) => {
@@ -105,7 +113,13 @@ const JsonDiffDashboard = ({isDarkModeEnabled}: { isDarkModeEnabled: boolean }) 
                         </Form.Item>
                         <Form.Item name={'search-type'}>
                             <Radio.Group
-                                options={[{label: 'search keys by path', value: 'search-path-keys'}, {label: 'search keys by name', value: 'search-name-keys'}, {label: 'search values', value: 'search-values'}]}
+                                options={[{
+                                    label: 'search keys by path',
+                                    value: 'search-path-keys'
+                                }, {label: 'search keys by name', value: 'search-name-keys'}, {
+                                    label: 'search values',
+                                    value: 'search-values'
+                                }]}
                                 optionType="button"
                                 buttonStyle="solid"
                                 defaultValue={'search-path-keys'}
@@ -115,8 +129,10 @@ const JsonDiffDashboard = ({isDarkModeEnabled}: { isDarkModeEnabled: boolean }) 
                 </Form>
                 <Flex style={{width: '100%'}} justify={"flex-end"}>
                     <Space>
+                        <Typography.Text>Dark editor theme</Typography.Text>
+                        <Switch onChange={onChangeDarkModeSwitch}/>
                         <Typography.Text>Only Show differences</Typography.Text>
-                        <Switch disabled={selectedView === 'default'} defaultChecked={selectedView !== 'default'}
+                        <Switch disabled={selectedView === 'default'} defaultChecked={isChecked}
                                 onChange={handleSwitchOnChange}/>
                         <Radio.Group
                             options={viewOptions}

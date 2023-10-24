@@ -15,11 +15,12 @@ export const getJsonDeltaArray = (jsonArray) => {
     return deltaArray.splice(0, deltaArray.length - 1);
 };
 
-export const getJsonArrayMetadata = unprocessedJSONArray =>
-    _map(unprocessedJSONArray, ({createdTime, userId}) => ({createdTime, userId}))
+export const getJsonArrayMetadata = ({resultList}) =>
+    _map(resultList, ({createdTime, userId}) => ({createdTime, userId}))
 
-export const processJsonArray = (unprocessedJSONArray) =>
-    _map(unprocessedJSONArray, ({jsonEvent}) => JSON.parse(jsonEvent));
+export const processJsonArray = ({resultList}) => {
+    return _map(resultList, ({jsonEvent}) => JSON.parse(jsonEvent));
+}
 
 export const countBlockKeys = blockValue => {
     if (blockValue === null) return 0;

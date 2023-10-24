@@ -83,7 +83,7 @@ const JsonBlock = props => {
                             index: nextIndex - 1,
                             shouldRenderBlock,
                             key: showAdded ? key : '',
-                            value: showAdded ? keyDelta[0] : '',
+                            value: showAdded ? keyDelta[1] : '',
                             currentPath,
                             state: STATE.REMOVED,
                             level
@@ -92,7 +92,7 @@ const JsonBlock = props => {
                             index: nextIndex - 1,
                             shouldRenderBlock,
                             key: showRemoved ? key : '',
-                            value: showRemoved ? keyDelta[1] : '',
+                            value: showRemoved ? keyDelta[0] : '',
                             currentPath,
                             state: STATE.ADDED,
                             level
